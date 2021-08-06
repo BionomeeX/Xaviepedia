@@ -18,7 +18,7 @@ namespace Xaviepedia.Modules
             }
 
             var filename = RandomFilename() + ".jpg";
-            Process.Start("python", $"-t \"{text}\" -o " + filename).WaitForExit();
+            Process.Start("python", $"predict.py -T \"{text}\" -o " + filename).WaitForExit();
             await Context.Channel.SendFileAsync(filename);
             File.Delete(filename);
         }
